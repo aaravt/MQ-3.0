@@ -17,4 +17,32 @@ function send() {
     number2=document.getElementById("numero dos").value;
     actual_answer=parseInt(number1)*parseInt(number2);
     console.log(actual_answer)
+    
+    question_number=`<h4>` +number1+"X"+number2+`</h4>`
+    input_box="<br>Answer : <input type=`text` id=`input_check`";
+    check_button="<br><br><button class =`btn btn-info` onclick= `check()`>Check</button>"
+    row= question_number + input_box + check_button;
+    document.getElementById("output").innerHTML=row
+    document.getElementById("numero uno").value="";
+    document.getElementById("numero dos").value="";
+
+}
+function check() {
+    get_answer = document.getElementById("input_check_box").value;
+    if (get_answer == actual_answer) {
+        if(aturn=="p1")
+        p1score=p1score+1;
+        document.getElementById("p1score").innerHTML=p1score;
+    }
+    else{
+    p2score=p2score+1
+    document.getElementById("p2score").innerHTML=p2score
+    }
+}
+if (qturn=="p1") {
+    qturn="p2"
+    document.getElementById("player_question").innerHTML="Question turn - " + p2name;
+}
+else{
+    
 }
